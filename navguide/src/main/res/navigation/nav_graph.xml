@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.navigationguide.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_yellowFragment"
+            app:destination="@id/yellowFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_colorFragment"
+            app:destination="@id/colorFragment" />
+        <argument
+            android:name="color"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/blueFragment"
+        android:name="com.example.navigationguide.BlueFragment"
+        android:label="fragment_blue"
+        tools:layout="@layout/fragment_blue" >
+        <action
+            android:id="@+id/action_blueFragment_to_violetFragment"
+            app:destination="@id/violetFragment"
+            app:popUpTo="@id/blueFragment" />
+        <action
+            android:id="@+id/action_blueFragment_to_greenFragment"
+            app:destination="@id/greenFragment"
+            app:popUpTo="@id/yellowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/redFragment"
+        android:name="com.example.navigationguide.RedFragment"
+        android:label="fragment_red"
+        tools:layout="@layout/fragment_red" >
+        <action
+            android:id="@+id/action_redFragment_to_orangeFragment"
+            app:destination="@id/orangeFragment"
+            app:popUpTo="@id/yellowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orangeFragment"
+        android:name="com.example.navigationguide.OrangeFragment"
+        android:label="fragment_orange"
+        tools:layout="@layout/fragment_orange" >
+        <action
+            android:id="@+id/action_orangeFragment_to_yellowFragment"
+            app:popUpTo="@id/homeFragment"
+            app:destination="@id/yellowFragment" />
+        <action
+            android:id="@+id/action_orangeFragment_to_redFragment"
+            app:destination="@id/redFragment"
+            app:popUpTo="@id/orangeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/yellowFragment"
+        android:name="com.example.navigationguide.YellowFragment"
+        android:label="fragment_yellow"
+        tools:layout="@layout/fragment_yellow" >
+        <action
+            android:id="@+id/action_yellowFragment_to_greenFragment"
+            app:destination="@id/greenFragment"
+            app:popUpTo="@id/yellowFragment" />
+        <action
+            android:id="@+id/action_yellowFragment_to_orangeFragment"
+            app:destination="@id/orangeFragment"
+            app:popUpTo="@id/yellowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/greenFragment"
+        android:name="com.example.navigationguide.GreenFragment"
+        android:label="fragment_green"
+        tools:layout="@layout/fragment_green" >
+        <action
+            android:id="@+id/action_greenFragment_to_blueFragment"
+            app:destination="@id/blueFragment"
+            app:popUpTo="@id/greenFragment" />
+        <action
+            android:id="@+id/action_greenFragment_to_yellowFragment"
+            app:popUpTo="@id/homeFragment"
+            app:destination="@id/yellowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/violetFragment"
+        android:name="com.example.navigationguide.VioletFragment"
+        android:label="fragment_violet"
+        tools:layout="@layout/fragment_violet" >
+        <action
+            android:id="@+id/action_violetFragment_to_blueFragment"
+            app:destination="@id/blueFragment"
+            app:popUpTo="@id/greenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.example.navigationguide.ColorFragment"
+        android:label="fragment_color"
+        tools:layout="@layout/fragment_color" >
+        <action
+            android:id="@+id/action_colorFragment_self"
+            app:destination="@id/colorFragment" />
+        <argument
+            android:name="color"
+            app:argType="integer" />
+    </fragment>
+</navigation>

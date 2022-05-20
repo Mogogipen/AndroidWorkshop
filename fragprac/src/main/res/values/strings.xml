@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FragmentPractice</string>
+    <string name="population">"Population:"</string>
+    <string name="area">"Area:"</string>
+    <string name="em_dash">—</string>
+    <string name="detail_switch">Switch to map</string>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NavigationGuide</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next_screen">Next Screen</string>
+    <string name="more_red">More Red</string>
+    <string name="more_blue">More Blue</string>
+    <string name="color_as_hex">Color as Hex</string>
+</resources>
