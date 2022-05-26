@@ -43,9 +43,13 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    override fun onResume() {
-        super.onResume()
-        colorLabel.text = args.color.toString(16)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val controller = findNavController()
+        controller.currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("color")?.observe(
+            viewLifecycleOwner) { result ->
+                colorLabel.text = "#${result.toString(16)}"
+            }
     }
 
     private fun nextScreenClicked() {
@@ -56,7 +60,7 @@ class HomeFragment : Fragment() {
 
     private fun colorFragmentClicked() {
         val navController = findNavController()
-        val colorString = colorField.text.toString()
+        val colorString = colorField.text.toString().replace("#", "")
         try {
             val color = colorString.toLong(16).toInt()
             val action = HomeFragmentDirections.actionHomeFragmentToColorFragment(color)

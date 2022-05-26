@@ -47,8 +47,6 @@ class ColorFragment : Fragment() {
     private fun handleColorChange() {
         root.setBackgroundColor(color)
         val controller = findNavController()
-        val navArgs: HomeFragmentArgs by navArgs()
-        val args = navArgs.toBundle()
-        controller.setGraph(controller.graph, args)
+        controller.previousBackStackEntry?.savedStateHandle?.set("color", color)
     }
 }
