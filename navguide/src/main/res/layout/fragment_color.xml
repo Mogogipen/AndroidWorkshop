@@ -7,14 +7,43 @@
     tools:context=".ColorFragment">
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <include layout="@layout/two_buttons" />
 
     </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@android:drawable/ic_menu_info_details"
+            android:contentDescription="@string/info" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/embedded_nav_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/embedded_nav_graph" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

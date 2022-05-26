@@ -6,4 +6,5 @@
     <string name="more_red">More Red</string>
     <string name="more_blue">More Blue</string>
     <string name="color_as_hex">Color as Hex</string>
+    <string name="info">Info</string>
 </resources>
