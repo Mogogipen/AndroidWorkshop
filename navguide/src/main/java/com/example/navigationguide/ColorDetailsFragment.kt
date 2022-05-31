@@ -9,16 +9,22 @@ import android.widget.TextView
 
 class ColorDetailsFragment : Fragment() {
 
-    private lateinit var et_title: TextView
+    private lateinit var color: TextView
+    private lateinit var body: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_color_details, container, false)
-        et_title = root.findViewById(R.id.tv_description_title)
-        et_title.text = "Some Awesome Details"
+        color = root.findViewById(R.id.tv_description_color)
+        body = root.findViewById(R.id.tv_description_body)
+        bindData()
         return root
+    }
+
+    private fun bindData() {
+
     }
 
 }

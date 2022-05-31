@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/embedded_nav_graph"
-    app:startDestination="@id/colorCommentsFragment2">
+    app:startDestination="@id/colorDetailsFragment">
 
     <fragment
         android:id="@+id/colorCommentsFragment2"
         android:name="com.example.navigationguide.ColorCommentsFragment"
         android:label="fragment_color_comments"
-        tools:layout="@layout/fragment_color_comments" />
+        tools:layout="@layout/fragment_color_comments" >
+        <action
+            android:id="@+id/action_colorCommentsFragment2_to_colorDetailsFragment"
+            app:destination="@id/colorDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/colorDetailsFragment"
         android:name="com.example.navigationguide.ColorDetailsFragment"
@@ -17,6 +21,7 @@
         tools:layout="@layout/fragment_color_details" >
         <action
             android:id="@+id/action_colorDetailsFragment_to_colorCommentsFragment2"
-            app:destination="@id/colorCommentsFragment2" />
+            app:destination="@id/colorCommentsFragment2"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>

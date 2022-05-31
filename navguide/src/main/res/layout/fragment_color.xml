@@ -43,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:defaultNavHost="true"
+            android:visibility="gone"
             app:navGraph="@navigation/embedded_nav_graph" />
     </LinearLayout>
 
