@@ -6,12 +6,12 @@
     app:startDestination="@id/colorDetailsFragment">
 
     <fragment
-        android:id="@+id/colorCommentsFragment2"
+        android:id="@+id/colorCommentsFragment"
         android:name="com.example.navigationguide.ColorCommentsFragment"
         android:label="fragment_color_comments"
         tools:layout="@layout/fragment_color_comments" >
         <action
-            android:id="@+id/action_colorCommentsFragment2_to_colorDetailsFragment"
+            android:id="@+id/action_colorCommentsFragment_to_colorDetailsFragment"
             app:destination="@id/colorDetailsFragment" />
     </fragment>
     <fragment
@@ -20,8 +20,8 @@
         android:label="fragment_color_details"
         tools:layout="@layout/fragment_color_details" >
         <action
-            android:id="@+id/action_colorDetailsFragment_to_colorCommentsFragment2"
-            app:destination="@id/colorCommentsFragment2"
+            android:id="@+id/action_colorDetailsFragment_to_colorCommentsFragment"
+            app:destination="@id/colorCommentsFragment"
             app:popUpToInclusive="false" />
     </fragment>
 </navigation>
