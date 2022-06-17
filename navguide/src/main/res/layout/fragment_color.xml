@@ -31,10 +31,11 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ImageButton
-            android:id="@+id/button_details"
+            android:id="@+id/button_bottom_bar"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@android:drawable/ic_menu_info_details"
+            android:src="@drawable/ic_up_drawer"
+            android:background="#00FFFFFF"
             android:contentDescription="@string/info" />
 
         <androidx.fragment.app.FragmentContainerView

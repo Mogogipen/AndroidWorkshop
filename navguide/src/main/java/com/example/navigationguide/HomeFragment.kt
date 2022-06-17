@@ -15,11 +15,6 @@ import androidx.navigation.fragment.navArgs
 import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
 
     private val args: HomeFragmentArgs by navArgs()
@@ -60,7 +55,8 @@ class HomeFragment : Fragment() {
 
     private fun colorFragmentClicked() {
         val navController = findNavController()
-        val colorString = colorField.text.toString().replace("#", "")
+        var colorString = colorField.text.toString().replace("#", "")
+        if (colorString.trim().isEmpty()) colorString = "ff888888"
         try {
             val color = colorString.toLong(16).toInt()
             val action = HomeFragmentDirections.actionHomeFragmentToColorFragment(color)

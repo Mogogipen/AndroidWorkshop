@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_color_comments" >
         <action
             android:id="@+id/action_colorCommentsFragment_to_colorDetailsFragment"
-            app:destination="@id/colorDetailsFragment" />
+            app:destination="@id/colorDetailsFragment"
+            app:popUpTo="@id/embedded_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/colorDetailsFragment"
@@ -22,6 +23,6 @@
         <action
             android:id="@+id/action_colorDetailsFragment_to_colorCommentsFragment"
             app:destination="@id/colorCommentsFragment"
-            app:popUpToInclusive="false" />
+            app:popUpTo="@id/embedded_nav_graph" />
     </fragment>
 </navigation>

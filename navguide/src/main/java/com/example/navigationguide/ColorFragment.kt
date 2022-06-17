@@ -1,5 +1,6 @@
 package com.example.navigationguide
 
+import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +10,6 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
@@ -21,6 +21,7 @@ class ColorFragment : Fragment() {
 
     private lateinit var root: View
     private lateinit var detailsView: FragmentContainerView
+    private lateinit var bottomBarButton: ImageButton
 
     private var showingComments = false
 
@@ -36,12 +37,19 @@ class ColorFragment : Fragment() {
     ): View {
         root = inflater.inflate(R.layout.fragment_color, container, false)
         root.setBackgroundColor(color)
+        bottomBarButton = root.findViewById(R.id.button_bottom_bar)
+        detailsView = root.findViewById(R.id.embedded_nav_fragment)
+
+        setupListeners()
+        handleColorChange()
+
+        return root
+    }
+
+    private fun setupListeners() {
         root.findViewById<Button>(R.id.button_add_blue).setOnClickListener { addBlueClicked() }
         root.findViewById<Button>(R.id.button_add_red).setOnClickListener { addRedClicked() }
-        root.findViewById<ImageButton>(R.id.button_details).setOnClickListener { infoClicked() }
-        detailsView = root.findViewById(R.id.embedded_nav_fragment)
-        handleColorChange()
-        return root
+        bottomBarButton.setOnClickListener { bottomBarPushed() }
     }
 
     private fun addBlueClicked() {
@@ -54,19 +62,13 @@ class ColorFragment : Fragment() {
         handleColorChange()
     }
 
-    private fun infoClicked() {
-        if (detailsView.visibility == View.GONE || detailsView.visibility == View.INVISIBLE)
-            detailsView.visibility = View.VISIBLE
-        else {
-            val action = if (showingComments) {
-                //switch to showing details
-                ColorDetailsFragmentDirections.actionColorDetailsFragmentToColorCommentsFragment()
-            } else {
-                //switch to showing comments
-                ColorCommentsFragmentDirections.actionColorCommentsFragmentToColorDetailsFragment()
-            }
-            navController.navigate(action)
-            showingComments = !showingComments
+    private fun bottomBarPushed() {
+        detailsView.visibility = if (detailsView.visibility == View.VISIBLE) {
+            bottomBarButton.setImageResource(R.drawable.ic_up_drawer)
+            View.GONE
+        } else {
+            bottomBarButton.setImageResource(R.drawable.ic_down_drawer)
+            View.VISIBLE
         }
     }
 
