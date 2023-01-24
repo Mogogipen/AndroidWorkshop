@@ -17,3 +17,11 @@ This is used to demonstrate the use of Fragments & Activities, the FragmentManag
 *Created while working through the Android Navigation "tutorial".*
 
 This is used to demonstrate the use of the navigation graph .xml file and using associated tools to swap between views as recommended by Android.
+
+## KotlinFunctionModifiers
+
+`funmods`
+
+*Kotlin function modifiers presentation*
+
+This is used to present differences between function modifiers in Kotlin and how they change things when compiled into Java.
